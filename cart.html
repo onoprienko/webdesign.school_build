@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8" />
+	<!-- <base href="/"> -->
+
+	<title>cart.html</title>
+	<meta name="description" content="" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg" />
+	<link rel="icon" href="img/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png" />
+	<!-- Template Basic Images End -->
+
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000" />
+	<meta name="robots" content="noindex, nofollow" />
+	<!-- Custom Browsers Color End -->
+
+	<link rel="stylesheet" href="css/main.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+</head>
+
+<body class="ca">
+	<header class="main-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 ca-Logo">
+					<a href="javascript: void(0)">
+						Logo
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="ca-cart">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="ca-cart_body">
+						<h1>Your cart</h1>
+						<div class="form-holder">
+							<!-- {% if cart.item_count > 0 %} -->
+							<form action="/cart" method="post" novalidate>
+								<table>
+									<thead>
+										<th colspan="2">Product</th>
+										<th>Price</th>
+										<th>Quantity</th>
+										<th>total</th>
+										<th></th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<a href="{{ item.url | within: collections.all }}">
+													<div class="img">
+														<img src="img/cart_thumb.png" />
+													</div>
+												</a>
+											</td>
+											<td>
+												<a class="product-name" href="{{ item.url }}">
+													Cinema 4D Journey & Motion Beast
+												</a>
+											</td>
+											<td>
+												$349.00
+											</td>
+											<td class="qunt">
+												<button id="downQnt">-</button>
+												<input type="number" name="updates[]" id="updates_{{ item.key }}"
+													min="1" value="1" />
+												<button id="upQnt">+</button>
+											</td>
+											<td>
+												$349.00
+											</td>
+											<td>
+												<a class="remove" href="/cart/change?line={{forloop.index
+							}}&amp;quantity=0">
+							<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="6.12109" y="0.464478" width="2" height="8" transform="rotate(45 6.12109 0.464478)" fill="white"/>
+								<rect x="7.53516" y="6.12131" width="2" height="8" transform="rotate(135 7.53516 6.12131)" fill="white"/>
+								</svg>
+								
+								
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div>
+									<div class="subtotal">
+											<span>Subtotal $ 100</span>
+										<p>Taxes and shipping calculated at checkout</p>
+										
+									</div>
+									<div class="buttons">
+										<a class="btn_transp" href="javascript: void(0)" >
+											To All Courses
+										</a>
+										<button class="btn_transp" type="submit" name="update">
+											Update
+										</button>
+										<button class="btn_white" type="submit" name="checkout">
+											Checkout
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+
+	<script src="js/scripts.min.js"></script>
+</body>
+
+</html>
